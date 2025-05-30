@@ -1,2 +1,45 @@
-# jobjournal
- A simple job and internship tracking dashboard built with HTML, CSS, and JavaScript.
+# JobJournal 
+
+A simple and clean job/internship tracking dashboard built with **HTML, CSS, and JavaScript**. It helps users track job applications and their statuses in one place.
+
+---
+
+## Features 
+
+- Add job/internship applications
+- Track statuses (Applied, Interview, Rejected, Offer)
+- Edit or delete entries
+- Filter applications by status
+
+---
+
+## Demo
+
+> *(Will add a screenshot when it will be ready)*
+
+---
+
+## Project Structure 
+
+jobjournal/
+
+├── index.html
+
+├── style.css
+
+├── script.js
+
+└── README.md
+
+---
+
+## Tech Stack 
+
+- **HTML** – structure
+- **CSS** – layout and styling
+- **JavaScript** – functionality (CRUD operations, filtering)
+
+---
+
+## License
+This project is open-source and available under the MIT License.
