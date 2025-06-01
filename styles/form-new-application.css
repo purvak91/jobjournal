@@ -1,0 +1,58 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.add-job-form {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #333;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+}
+
+.add-job-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.form-div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #444;
+}
+
+input, select {
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #333;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 2rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
