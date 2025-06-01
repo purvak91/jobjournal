@@ -19,20 +19,6 @@ A simple and clean job/internship tracking dashboard built with **HTML, CSS, and
 
 ---
 
-## Project Structure 
-
-jobjournal/
-
-├── index.html
-
-├── style.css
-
-├── script.js
-
-└── README.md
-
----
-
 ## Tech Stack 
 
 - **HTML** – structure

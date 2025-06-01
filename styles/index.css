@@ -1,0 +1,73 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+.company-name {
+  font-weight: bold;
+  display: inline-block;
+  font-size: 24px;
+  margin: 8px 8px 20px 8px;
+}
+.role {
+  margin: 8px;  
+}
+.applied {
+  background-color: lightblue;
+  padding: 1px 7px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.in-process {
+  background-color: lightgreen;
+  padding: 1px 7px;
+  border-radius: 8px;
+}
+.rejected {
+  background-color: lightpink;
+  padding: 1px 7px;
+  border-radius: 8px;
+}
+.status-block {
+  margin: 8px;
+  display: inline-block;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 8px 8px 8px;
+  justify-content: space-between;
+}
+.edit-button,
+.delete-button {
+  background-color: white;
+  border: none;
+  color: rgb(78, 78, 78);
+}
+.application {
+  display: flex;
+  flex-direction: column;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  margin: 8px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.list-applications {
+  display: flex;
+  flex-direction: row;
+  margin: 2px;
+  flex-wrap: wrap;
+}
+
+.add-application-button {
+  background-color: white;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 5px;
+  padding: 12px;
+  display: inline-block;
+}
+main {
+  align-items: center;  
+}
