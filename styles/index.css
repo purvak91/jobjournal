@@ -36,24 +36,24 @@ main {
   display: inline-block;
 }
 
-.applied,
-.in-process,
-.rejected {
+.Applied,
+.Interview,
+.Rejected {
   padding: 0.25rem 0.75rem;
   border-radius: 0.5rem;
   display: inline-block;
   font-size: 0.875rem;
 }
 
-.applied {
+.Applied {
   background-color: lightblue;
 }
 
-.in-process {
+.Interview {
   background-color: lightgreen;
 }
 
-.rejected {
+.Rejected {
   background-color: lightpink;
 }
 

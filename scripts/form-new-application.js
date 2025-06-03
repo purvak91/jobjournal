@@ -10,5 +10,4 @@ document.getElementById('job-form').addEventListener('submit', (e) => {
   };
 
   addJob(application);
-  location.href = 'index.html';
 });
