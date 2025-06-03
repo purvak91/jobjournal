@@ -6,14 +6,17 @@ export function loadFromStorage() {
     // temporary list to make sure the code works 
     if (!applications) {
         applications = [{
+          id: 1,
           companyName: 'Google',
           role: 'Internship',
           status: 'Applied'
         }, {
+          id: 2,
           companyName: 'Microsoft',
           role: 'Internship',
           status: 'Interview'
         }, {
+          id: 3,
           companyName: 'Meta',
           role: 'Internship',
           status: 'Rejected'
@@ -30,13 +33,30 @@ export function addJob(newApplication) {
   if (!applications) loadFromStorage();
 
   // adding the new job got from the form submission
-  applications.push(newApplication);
+  const jobWithId = {
+    id: Date.now(), // unique ID
+    companyName: newApplication.companyName,
+    role: newApplication.role,
+    status: newApplication.status
+  };
+
+  applications.push(jobWithId);
 
   saveToStorage();
   
   // to make sure the html element is present on the current page
   location.href = 'index.html'; 
   renderApplications();
+}
+
+export function deleteJob(id) {
+  const index = applications.findIndex(application => application.id === parseInt(id));
+  console.log(index);
+  if (index != -1) {
+    applications.splice(index, 1);
+    saveToStorage();
+    renderApplications();
+  }
 }
 
 export function renderApplications() {
@@ -57,7 +77,7 @@ export function renderApplications() {
         </div>
         <div class="buttons">
           <button class="edit-button">Edit</button>
-          <button class="delete-button">Delete</button>
+          <button class="delete-button" data-id="${application.id}">Delete</button>
         </div>
       </div>
     `;
@@ -65,4 +85,11 @@ export function renderApplications() {
 
   document.querySelector('.list-applications')
   .innerHTML = applicationsHTML;
+
+  document.querySelectorAll('.delete-button').forEach(button => {
+    button.addEventListener('click', ()=> {
+      deleteJob(button.getAttribute('data-id'));
+    });
+  });
+
 }
