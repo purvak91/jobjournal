@@ -25,7 +25,8 @@ body {
 
 label {
   display: block;
-  margin-bottom: 0.3rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.1rem;
   font-weight: 600;
   color: #444;
 }
