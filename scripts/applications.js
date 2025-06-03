@@ -1,3 +1,5 @@
+import { renderApplications } from "./index.js";
+
 export let applications;
 
 export function loadFromStorage() {
@@ -20,12 +22,9 @@ export function loadFromStorage() {
     };
 }
 
-loadFromStorage();
-
 function saveToStorage() {
     localStorage.setItem('applications', JSON.stringify(applications));
 }
-
 
 export function addJob(newApplication) {
   applications.push({
@@ -34,7 +33,6 @@ export function addJob(newApplication) {
     status: newApplication.status
   });
 
-  console.log(applications);
   saveToStorage();
-  console.log(applications);
+  renderApplications();
 }
