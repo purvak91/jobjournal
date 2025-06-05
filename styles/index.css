@@ -4,6 +4,30 @@ body {
   padding: 0;
 }
 
+/* header css*/
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0.3rem;
+}
+
+.left {
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin: 0.8rem;
+}
+
+.right select{
+  padding: 0.4rem;
+  font-size: medium;
+  border: 1px solid black;
+  margin: 0.7rem;
+  border-radius: 0.5rem;
+}
+
 main {
   align-items: center;
   padding: 1rem;
@@ -61,7 +85,6 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
 }
 
 .buttons {
