@@ -59,32 +59,45 @@ export function deleteJob(id) {
   }
 }
 
-export function renderApplications(filter) {
+export function renderApplications(status, sort) {
   let applicationsHTML = '';
 
+  let filteredApps = (status === 'All') 
+    ? applications 
+    : applications.filter(app => app.status === status);
+
+  // Sort Logic
+  if (sort === 'company-asc') {
+    filteredApps.sort((a, b) => a.companyName.localeCompare(b.companyName));
+  } else if (sort === 'company-desc') {
+    filteredApps.sort((a, b) => b.companyName.localeCompare(a.companyName));
+  } else if (sort === 'role-asc') {
+    filteredApps.sort((a, b) => a.role.localeCompare(b.role));
+  } else if (sort === 'role-desc') {
+    filteredApps.sort((a, b) => b.role.localeCompare(a.role));
+  }
+
   // geneating html for all the applications through a forEach loop 
-  applications.forEach(application => {
+  filteredApps.forEach(application => {
 
     // checking for the status and filtering it acc to that 
-    if (filter === 'All' || filter === application.status) {
-      applicationsHTML += `
-        <div class="application">
-          <div class="company-name">
-            ${application.companyName}
-          </div>
-          <div class="role">
-            Role: ${application.role}
-          </div>
-          <div class="status ${application.status}">
-            ${application.status}
-          </div>
-          <div class="buttons">
-            <button class="edit-button">Edit</button>
-            <button class="delete-button" data-id="${application.id}">Delete</button>
-          </div>
+    applicationsHTML += `
+      <div class="application">
+        <div class="company-name">
+          ${application.companyName}
         </div>
-      `;
-    }
+        <div class="role">
+          Role: ${application.role}
+        </div>
+        <div class="status ${application.status}">
+          ${application.status}
+        </div>
+        <div class="buttons">
+          <button class="edit-button">Edit</button>
+          <button class="delete-button" data-id="${application.id}">Delete</button>
+        </div>
+      </div>
+    `;
     
   });
 

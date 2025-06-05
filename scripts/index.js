@@ -4,12 +4,17 @@ document.querySelector('.js-add-application-button').addEventListener('click', (
   location.href = 'form-new-application.html';
 });
 
-const filter = document.getElementById('filter');
+const statusSelect = document.getElementById('filter');
+const sortSelect = document.getElementById('sort-dropdown');
 
-filter.addEventListener('change', ()=> {
-  const filter = document.getElementById('filter').value;
-  renderApplications(filter);
-});
+function handleFilterSortChange() {
+  const status = statusSelect.value;
+  const sort = sortSelect.value;
+  renderApplications(status, sort);
+}
+
+statusSelect.addEventListener('change', handleFilterSortChange);
+sortSelect.addEventListener('change', handleFilterSortChange);
 
 loadFromStorage();
-renderApplications('All');
+renderApplications('All', 'none');
