@@ -59,7 +59,18 @@ export function deleteJob(id) {
   }
 }
 
-export function renderApplications(status, sort) {
+function editJob(id) {
+  const index = applications.findIndex(application => application.id === parseInt(id));
+  console.log(index);
+
+  // Save that application’s data to localStorage
+  localStorage.setItem('editApplication', JSON.stringify(applications[index]));
+
+  // Navigate to the form page
+  location.href = 'form-new-application.html';
+}
+
+export function renderApplications(status = 'All', sort = 'none') {
   let applicationsHTML = '';
 
   let filteredApps = (status === 'All') 
@@ -93,7 +104,7 @@ export function renderApplications(status, sort) {
           ${application.status}
         </div>
         <div class="buttons">
-          <button class="edit-button">Edit</button>
+          <button class="edit-button" data-id="${application.id}">Edit</button>
           <button class="delete-button" data-id="${application.id}">Delete</button>
         </div>
       </div>
@@ -104,9 +115,17 @@ export function renderApplications(status, sort) {
   document.querySelector('.list-applications')
   .innerHTML = applicationsHTML;
 
+  // delete buttons 
   document.querySelectorAll('.delete-button').forEach(button => {
     button.addEventListener('click', ()=> {
       deleteJob(button.getAttribute('data-id'));
+    });
+  });
+
+  // edit buttons
+  document.querySelectorAll('.edit-button').forEach(button => {
+    button.addEventListener('click', ()=> {
+      editJob(button.getAttribute('data-id'));
     });
   });
 
