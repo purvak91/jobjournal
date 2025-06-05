@@ -14,12 +14,14 @@
     <form id="job-form">
       <div class="form-div">
         <label for="company-name">Company Name: </label> <br>
-        <input type="text" id="company-name" name="company-name"> <br>
+        <input type="text" id="company-name" name="company-name" required minlength="2"> <br>
+        <span class="error" id="error-role"></span>
       </div>
 
       <div class="form-div">
         <label for="role">Role: </label> <br>
-        <input type="text" id="role" name="role"> <br>
+        <input type="text" id="role" name="role" required minlength="2"> <br>
+        <span class="error" id="error-role"></span>
       </div>
       
       <div class="form-div">
@@ -29,6 +31,7 @@
           <option value="Interview">Interview</option>
           <option value="Rejected">Rejected</option>
         </select>
+        <span class="error" id="error-role"></span>
       </div>
       
       <button type="submit">Add Job</button>
