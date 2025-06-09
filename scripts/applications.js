@@ -47,6 +47,8 @@ export function addJob(newApplication) {
   // to make sure the html element is present on the current page
   location.href = 'index.html'; 
   renderApplications();
+
+  showAlert('Application added!', 'success');
 }
 
 export function deleteJob(id) {
@@ -56,7 +58,10 @@ export function deleteJob(id) {
     applications.splice(index, 1);
     saveToStorage();
     renderApplications();
+
+    showAlert('Application deleted successfully.', 'danger');
   }
+  
 }
 
 function editJob(id) {
@@ -93,19 +98,17 @@ export function renderApplications(status = 'All', sort = 'none') {
 
     // checking for the status and filtering it acc to that 
     applicationsHTML += `
-      <div class="application">
-        <div class="company-name">
-          ${application.companyName}
-        </div>
-        <div class="role">
-          Role: ${application.role}
-        </div>
-        <div class="status ${application.status}">
-          ${application.status}
-        </div>
-        <div class="buttons">
-          <button class="edit-button" data-id="${application.id}">Edit</button>
-          <button class="delete-button" data-id="${application.id}">Delete</button>
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">${application.companyName}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${application.role}</h6>
+            <span class="badge bg-${getBadgeColor(application.status)}">${application.status}</span>
+            <div class="mt-3 d-flex justify-content-between">
+              <button class="btn btn-sm btn-outline-primary edit-button" data-id="${application.id}">Edit</button>
+              <button class="btn btn-sm btn-outline-danger delete-button" data-id="${application.id}">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
     `;
@@ -129,4 +132,28 @@ export function renderApplications(status = 'All', sort = 'none') {
     });
   });
 
+}
+
+function getBadgeColor(status) {
+  if (status === 'Applied') return 'secondary';
+  if (status === 'Interview') return 'info';
+  if (status === 'Rejected') return 'danger';
+  return 'primary';
+}
+
+
+function showAlert(message, type = 'success') {
+  const alertHTML = `
+    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  `;
+  document.getElementById('alert-placeholder').innerHTML = alertHTML;
+
+  // Optional: auto-dismiss after 3s
+  setTimeout(() => {
+    const alert = document.querySelector('.alert');
+    if (alert) alert.remove();
+  }, 3000);
 }

@@ -4,30 +4,37 @@ body {
   padding: 0;
 }
 
-/* header css*/
+ /* header css */
 header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  margin: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .left {
   font-weight: bold;
   font-size: 1.8rem;
-  margin: 0.8rem;
+  display: inline-block;
 }
 
 .right select{
   padding: 0.4rem;
   font-size: medium;
   border: 1px solid black;
-  margin: 0.7rem;
   border-radius: 0.5rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.4rem;
+  margin-left: 0.5rem;
 }
 
+.right {
+  display: inline-block;
+}
+
+/*
 main {
   align-items: center;
   padding: 1rem;
@@ -124,4 +131,4 @@ main {
   display: flex;
   justify-content: center;
   margin: 1rem 0;
-}
+} */
